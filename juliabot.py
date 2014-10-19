@@ -5,7 +5,6 @@ import requests
 import json
 import re
 import pandas as pd
-from datetime import datetime, timedelta
 import tweepy
 import sys
 import getopt
@@ -90,7 +89,7 @@ def main(argv):
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print 'arxivbot.py -c <str> -m <int> -t <int> -n'
+            print 'juliabot.py -c <str> -t <int> -n'
             sys.exit()
         if opt == '-c':
             credentials = str(arg)
