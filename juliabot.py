@@ -63,7 +63,7 @@ class tweet(object):
                 string = string[0:116] + '...'
             return(string)
         if self.data is not None:
-            self.tweets = ['{0} {1} {2}'.format(_shorten(i['title']), i['link'])
+            self.tweets = ['{0} {1}'.format(_shorten(i['title']), i['link'])
                            for i in self.data]
 
     def publish(self, sleeptime):
