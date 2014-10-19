@@ -15,8 +15,8 @@ class questions(object):
 
     def __init__(self, tags, tdelta):
         self.tags = tags
-        self.fromdate = int(time.time())
-        self.todate = self.fromdate - tdelta
+        self.todate = int(time.time())
+        self.fromdate = self.fromdate - tdelta
         self.raw = None
         self.data = None
 
