@@ -9,7 +9,9 @@ import tweepy
 import sys
 import getopt
 import time
+import HTMLParser
 
+decodeHTML = HTMLParser.HTMLParser()
 
 class questions(object):
 
@@ -36,6 +38,7 @@ class questions(object):
 
         def _clean_string(string):
             string = unicode(string).encode('utf-8')
+            string = decodeHTML.unescape(string)
             return re.sub('\n[ ]?', '', string)
         if len(self.raw['items']) > 0:
             self.data = [{'title': self.raw['items'][i]['title'],
