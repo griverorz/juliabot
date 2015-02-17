@@ -26,7 +26,7 @@ class questions(object):
     def get(self):
         payload = {'tagged': self.tags, 'site': 'stackoverflow', 
                    'fromdate': self.fromdate, 'todate': self.todate,
-                   'sort': 'creation', 'order': 'desc'}
+                   'sort': 'creation', 'order': 'asc'}
         url='https://api.stackexchange.com/2.2/questions'
         data = requests.get(url, params=payload).text
         self.raw = json.loads(data)
@@ -41,7 +41,7 @@ class questions(object):
             self.data = [{'title': self.raw['items'][i]['title'],
                           'link': self.raw['items'][i]['link'],
                           'time': self.raw['items'][i]['creation_date']}
-                         for i in xrange(len(self.raw))]
+                         for i in xrange(len(self.raw['items']))]
 
 
 class tweet(object):
