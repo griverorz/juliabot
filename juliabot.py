@@ -38,7 +38,7 @@ class questions(object):
 
         def _clean_string(string):
             string = unicode(string).encode('utf-8')
-            string = decodeHTML.unescape(string)
+            decodeHTML.unescape(string)
             return re.sub('\n[ ]?', '', string)
         if len(self.raw['items']) > 0:
             self.data = [{'title': self.raw['items'][i]['title'],
