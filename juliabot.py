@@ -37,11 +37,12 @@ class questions(object):
     def parse(self):
 
         def _clean_string(string):
+            string = decodeHTML.unescape(string)
             string = unicode(string).encode('utf-8')
-            decodeHTML.unescape(string)
             return re.sub('\n[ ]?', '', string)
+
         if len(self.raw['items']) > 0:
-            self.data = [{'title': self.raw['items'][i]['title'],
+            self.data = [{'title': _clean_string(self.raw['items'][i]['title']),
                           'link': self.raw['items'][i]['link'],
                           'time': self.raw['items'][i]['creation_date']}
                          for i in xrange(len(self.raw['items']))]
